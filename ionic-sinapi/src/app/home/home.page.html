@@ -1,0 +1,30 @@
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button color="primary"></ion-menu-button>
+      </ion-buttons>
+      <!-- <ion-row>
+        <ion-label><ion-icon slot="start" name="location-outline"></ion-icon> </ion-label>  
+      </ion-row>
+      <ion-row>
+        <ion-label><ion-icon slot="start" name="cart"></ion-icon> {{ status }}</ion-label>  
+
+      </ion-row> -->
+    </ion-toolbar>
+
+  </ion-header>
+
+
+  <ion-content [fullscreen]="true" color="light">
+    <ion-list [inset]="true">
+      <ion-item>
+        <ion-label (click)="goSinapi()">SINAPI</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>SICRO</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+
+
+

@@ -1,0 +1,85 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/sinapi"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div *ngIf="compositionSinapi">
+    <ion-card>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-label class="text-bold">Código </ion-label>
+            {{ compositionSinapi.code }}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-label class="text-bold">Descrição </ion-label>
+            {{ compositionSinapi.description }}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-label class="text-bold">Unidade de medida </ion-label>
+            {{ compositionSinapi.unitOfMeasurementSinapi!.description }}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-label class="text-bold">Macro/classe/grupo </ion-label>
+            {{ compositionSinapi.macroClassGroup }}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-label class="text-bold">Caderno Técnico </ion-label>
+            {{ compositionSinapi.technicalNotebook!.description }}
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-list lines="full" *ngFor="let compositionInputSinapi of compositionSinapi.compositionsInputsSinapi">
+        <ion-item *ngIf="compositionInputSinapi.compositionSinapi">
+          <ion-label>
+            <h3>
+              Composição
+            </h3>
+            <p> <ion-label>Código : {{ compositionInputSinapi.compositionSinapi.code }} </ion-label>
+            </p>
+            <p> <ion-label>Descrição : {{ compositionInputSinapi.compositionSinapi.description }}</ion-label>
+            </p>
+            <p> <ion-label>Unidade : {{ compositionInputSinapi.compositionSinapi.unitOfMeasurementSinapi.description
+                }}</ion-label>
+            </p>
+            <p> <ion-label>Caderno técnico : {{ compositionInputSinapi.compositionSinapi.technicalNotebook.description
+                }}</ion-label>
+            </p>
+            <p> <ion-label>Coeficiente : {{ compositionInputSinapi.coefficient | currency: 'BRL': '' : '1.7-7' }}</ion-label>
+            </p>
+          </ion-label>
+        </ion-item>
+        <ion-item *ngIf="compositionInputSinapi.inputSinapi">
+          <ion-label>
+            <h3>
+              Insumo
+            </h3>
+            <p> <ion-label>Código : {{ compositionInputSinapi.inputSinapi.code }} </ion-label>
+            </p>
+            <p> <ion-label>Descrição : {{ compositionInputSinapi.inputSinapi.description }}</ion-label>
+            </p>
+            <p> <ion-label>Unidade : {{ compositionInputSinapi.inputSinapi.unitOfMeasurementSinapi.description
+                }}</ion-label>
+            </p>
+            <p> <ion-label>Coeficiente : {{ compositionInputSinapi.coefficient | currency: 'BRL': '' : '1.7-7'}}</ion-label>
+            </p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+
+
+    </ion-card>
+  </div>
+</ion-content>

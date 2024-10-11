@@ -1,0 +1,56 @@
+<!-- <ion-tabs>
+    <ion-tab-bar>
+      <ion-tab-button (click)="openModal(true)">
+        <ion-icon name="funnel"></ion-icon>
+        Filtrar por Classe
+      </ion-tab-button>
+      <ion-tab-button (click)="openModalType(true)">
+        <ion-icon name="funnel"></ion-icon>
+        Filtrar por Tipo
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs> -->
+
+
+    <ion-modal [isOpen]="isModalOpen">
+      <ng-template>
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>Selecione uma Classe</ion-title>
+            <ion-buttons slot="end">
+              <ion-button (click)="openModal(false)"><ion-icon name="close"></ion-icon></ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content [fullscreen]="true" color="light">
+          <ion-list [inset]="true" >
+            <ion-item (click)="filterByClass(item)" *ngFor='let item of classes'>
+              <ion-label>{{item.description}}</ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-content>
+            </ng-template>
+    </ion-modal>
+
+
+    <ion-modal [isOpen]="isOpen">
+      <ng-template>
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>Selecione um Tipo </ion-title>
+            <ion-buttons slot="end">
+              <ion-button (click)="openModalType(false)"><ion-icon name="close"></ion-icon></ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content [fullscreen]="true" color="light">
+          <ion-list [inset]="true" >
+            <ion-item (click)="filterByType(item)" *ngFor='let item of types'>
+              <ion-label>{{item.description}}</ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-content>
+            </ng-template>
+    </ion-modal>
+
+

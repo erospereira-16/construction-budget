@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button color="primary"></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Renove sua Assinatura</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content [fullscreen]="true" color="light">
+    <div id="container">
+        <ion-card>
+          <ion-grid id="main-content">
+            <form [formGroup]="form">
+            <ion-row>
+                <ion-col class="ion-margin">
+                    <ion-select label="Selecione" formControlName="plan" label-placement="floating" class="ion-margin-end"
+                       fill="outline">
+                      <ion-select-option *ngFor="let plan of plans" [value]="plan">
+                        {{plan.description}} / {{plan.value | currency: 'BRL'}}
+                      </ion-select-option>
+                    </ion-select>
+                </ion-col>
+              </ion-row>
+            </form>
+            <div id="paymentBrick_container">
+              
+            </div>
+                </ion-grid>
+        </ion-card> 
+    </div>        
+  </ion-content>
+
+
+

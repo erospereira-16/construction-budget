@@ -1,0 +1,35 @@
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="overlay">
+      <ion-content>
+        <ion-list class="ion-padding" id="inbox-list">
+          <ion-item lines="none">
+            <ion-avatar><img src="./assets/images/logo_produze_sinapi.jpg"></ion-avatar>
+          </ion-item>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item *ngIf="account" lines="none">
+              <ion-label class="text-size">Olá {{account.email}} </ion-label>
+            </ion-item>
+            <ion-item routerDirection="root"  (click)="onMenu(1)" lines="none" detail="false">
+              <ion-icon color="primary" slot="start" name="person-circle"></ion-icon>
+              <ion-label>Minha Conta</ion-label>
+            </ion-item>
+            <ion-item routerDirection="root"  (click)="onMenu(2)" lines="none" detail="false">
+              <ion-icon color="primary" slot="start" [ios]="'help-outline'" [md]="'help-outline'"></ion-icon>
+              <ion-label>Sobre</ion-label>
+            </ion-item>
+            <ion-item routerDirection="root"  (click)="onMenu(3)" lines="none" detail="false">
+              <ion-icon color="primary" slot="start" name="power"></ion-icon>
+              <ion-label>Desconectar do app</ion-label>
+            </ion-item>
+            <ion-item routerDirection="root"  (click)="onMenu(4)" lines="none" detail="false">
+              <ion-icon color="primary" slot="start" name="star"></ion-icon>
+              <ion-label>Seja premium</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>
